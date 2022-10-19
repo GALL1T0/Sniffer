@@ -24,7 +24,19 @@ DATA_TAB_2 = '\t\t   '
 DATA_TAB_3 = '\t\t\t   '
 DATA_TAB_4 = '\t\t\t\t   '
 
-def main():
+def AsistenteVoz():
+  # engine = pyttsx3.init()
+   # engine.setProperty("rate",150)
+    texto = "Bienvenido a MaunteinWaired, por favor elija una opcion"
+    #engine.say(texto)
+    #engine.runAndWait()
+def despedida():
+    #engine = pyttsx3.init()
+    #engine.setProperty("rate", 150)
+    texto = "Hasta pronto!"
+   # engine.say(texto)
+   # engine.runAndWait()
+def red():
     conn = socket.socket(socket.PF_PACKET, socket.SOCK_RAW, socket.ntohs(3))
 
     filters = (["ICMP", 1, "ICMPv6"],["UDP", 17, "UDP"], ["TCP", 6, "TCP"])
@@ -309,22 +321,6 @@ def format_output_line(prefix, string):
         if size % 2:
             size-= 1
             return '\n'.join([prefix + line for line in textwrap.wrap(string, size)])
-
-
-main()
-
-def AsistenteVoz():
-    engine = pyttsx3.init()
-    engine.setProperty("rate",150)
-    texto = "Bienvenido a MaunteinWaired, por favor elija una opcion"
-    engine.say(texto)
-    engine.runAndWait()
-def despedida():
-    engine = pyttsx3.init()
-    engine.setProperty("rate", 150)
-    texto = "Hasta pronto!"
-    engine.say(texto)
-    engine.runAndWait()
 def Barra_Progreso (part,total,length=30):
     frac = part/total
     completado = int(frac*length)
@@ -529,9 +525,10 @@ def LeerArchivo():
 def LeerRed():
     time.sleep(1)
     os.system('cls')
-    main()
+    red()
     time.sleep(2)
     os.system('cls')
+
 
 print("Se esta iniciando el programa")
 time.sleep(.8)
